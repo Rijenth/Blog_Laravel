@@ -16,8 +16,24 @@
                 </a>
             </div>
 
-            <div class="mt-8 md:mt-0">
-                <a href="/" class="text-xs font-bold uppercase">Home Page</a>
+            <div class="mt-8 md:mt-0 flex items-center">
+
+                {{-- N'affiche cette ligne que si l'utilisateur n'est pas inscrit --}}
+                {{-- @guest
+                    <a href="/register" class="text-xs font-bold uppercase">Register</a>
+                @endguest --}}
+                @auth
+                    <span href="/" class="text-xs font-bold uppercase">Welcome back {{ auth()->user()->name }}</span>
+
+                <form action="/logout" method="post" class="text-xs font-semibold text-blue-500 ml-6">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
+
+                    @else
+                    <a href="/login" class="text-xs font-bold uppercase">Login</a>
+                    <a href="/register" class="ml-6 text-xs font-bold uppercase">Register</a>
+                @endauth
 
                 <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Subscribe for Updates
@@ -57,14 +73,8 @@
         </footer>
     </section>
 
-    @if (session()->has('success'))
-    <div
-    x-data="{ show: true }"
-    x-init="setTimeout(() => show = false, 4000)"
-    x-show = "show"
-    class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm" >
-        <p>{{ session('success') }}</p>
-    </div>
-    @endif
+    {{-- Mon composantt flash affiche un
+        petit message confirmant l'inscription de l'utilisateur --}}
+    <x-flash/>
 
 </body>

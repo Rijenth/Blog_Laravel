@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
@@ -32,5 +33,13 @@ Route::get('/title/{post:slug}', [PostController::class, 'show']);
 /* Route::get('categories/{category:slug}', [PostController::class, 'category']); */
 /* Route::get('authors/{author:username}', [PostController::class, 'author']); */
 
-Route::get('register', [RegisterController::class, 'create']);
-Route::post('register', [RegisterController::class, 'store']);
+Route::get('register', [RegisterController::class, 'create'])->middleware('guest'); // Only a guess can visit this page
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
+
+// Un connecté ne peut pas se faire rediriger vers la page de connexion
+// Un guest ne peut pas se faire rediriger vers la page de deconnexion
+Route::get('login', [SessionController::class, 'create'])->middleware('guest');;
+Route::post('login', [SessionController::class, 'store'])->middleware('guest');;
+
+
+Route::post('logout', [SessionController::class, "destroy"])->middleware('auth');;
