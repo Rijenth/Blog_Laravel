@@ -22,7 +22,7 @@ class PostFactory extends Factory
 
         // Attribue une catégorie préexistance à un post si elle existe
         // Sinon, créer une nouvelle catégorie
-        $myCategory = (Category::find($random = rand(1, 50))) ? $random : Category::factory();
+        $myCategory = (Category::find($random = rand(1, 10))) ? $random : Category::factory();
 
 
         return [

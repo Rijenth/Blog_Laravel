@@ -13,6 +13,7 @@
     @if ($mesPost->count())
 
     <x-posts-grid :posts="$mesPost" />
+    {{$mesPost->links()}}
 
     @else
         <p> No posts yet. Please check back later.

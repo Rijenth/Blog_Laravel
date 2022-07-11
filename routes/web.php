@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
@@ -30,3 +31,6 @@ Route::get('/title/{post:slug}', [PostController::class, 'show']);
 // a été mis en place dans le controleur + model Post
 /* Route::get('categories/{category:slug}', [PostController::class, 'category']); */
 /* Route::get('authors/{author:username}', [PostController::class, 'author']); */
+
+Route::get('register', [RegisterController::class, 'create']);
+Route::post('register', [RegisterController::class, 'store']);

@@ -12,7 +12,9 @@ class PostController extends Controller
     public function index()
     {
     return view('post.index', [
-        'mesPost' => Post::latest()->filter(request(['search', 'category', 'author']))->get()
+        'mesPost' => Post::latest()->filter(request(['search', 'category', 'author']))
+                                    ->paginate(3)
+                                    ->withQueryString()
     ]);
     }
 
