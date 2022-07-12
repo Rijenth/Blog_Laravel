@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostCommentController;
+use App\Http\Controllers\NewsletterController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -27,30 +28,8 @@ use PhpParser\Node\Stmt\TryCatch;
 |
 */
 
-// L'API mailchimp
-Route::post('newsletter', function(Newsletter $newsletter)
-{
-    request()->validate(['email' => 'required|email']);
-
-
-    try {
-
-        /* $newsletter = new Newsletter();
-        $newsletter->subscribe(request('email')); */
-
-        $newsletter->subscribe(request('email'));
-
-    }catch (\Exception $e) {
-        throw ValidationException::withMessages([
-            'email' => 'This email could not be added to our newsletter list.'
-        ]);
-    }
-
-
-    return redirect('/')
-        ->with('success', 'You are now signed up for our newsletter !');
-});
-
+// L'API mailchimp, Single action controller
+Route::post('newsletter', NewsletterController::class);
 
 
 Route::get('/', [PostController::class, 'index']);
