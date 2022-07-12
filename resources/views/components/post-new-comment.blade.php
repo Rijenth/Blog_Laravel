@@ -32,7 +32,7 @@
         @enderror
 
         <div class='flex justify-end mt-6 pt-6 border-t border-gray-200'>
-            <button class='bg-blue-500 text-white upperace font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600' type="submit">Post</button>
+            <x-submit-button>Post</x-submit-button>
         </div>
 
         </form>

@@ -11,6 +11,7 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "mailchimp/marketing": "^3.0",
         "psy/psysh": "0.11.2",
         "spatie/yaml-front-matter": "^2.0"
     },

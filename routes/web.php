@@ -8,12 +8,13 @@ use App\Http\Controllers\PostCommentController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
-
+use App\Services\Newsletter;
 use Illuminate\Database\Console\DbCommand;
 use Illuminate\Log\Logger;
+use Illuminate\Validation\ValidationException;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Illuminate\support\Facades\File;
-
+use PhpParser\Node\Stmt\TryCatch;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,32 @@ use Illuminate\support\Facades\File;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// L'API mailchimp
+Route::post('newsletter', function(Newsletter $newsletter)
+{
+    request()->validate(['email' => 'required|email']);
+
+
+    try {
+
+        /* $newsletter = new Newsletter();
+        $newsletter->subscribe(request('email')); */
+
+        $newsletter->subscribe(request('email'));
+
+    }catch (\Exception $e) {
+        throw ValidationException::withMessages([
+            'email' => 'This email could not be added to our newsletter list.'
+        ]);
+    }
+
+
+    return redirect('/')
+        ->with('success', 'You are now signed up for our newsletter !');
+});
+
+
 
 Route::get('/', [PostController::class, 'index']);
                   //   || Pas défaut, pointe 'id'
