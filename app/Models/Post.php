@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Post extends Model
 {
     use HasFactory;
 
-    protected $with = ['category', 'author'];
+    protected $with = ['category', 'author', 'comments'];
 
     /* protected $guarded = ['id']; */
     protected $fillable = [
@@ -67,14 +68,21 @@ class Post extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(category::class);
+    }
+
+    public function comments()
+    {
+        // Ici, je précise que la clé étrangère n'est pas 'author_id'
+        // Mais bien 'user_id'
+        return $this->hasMany(Comment::class);
     }
 
     public function author()
     {
         // Ici, je précise que la clé étrangère n'est pas 'author_id'
         // Mais bien 'user_id'
-        return $this->belongsto(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
 

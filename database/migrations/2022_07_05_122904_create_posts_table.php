@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete(); // Si on supprime un utilisateur, alors tout ses posts disparaissents.
             $table->foreignId('category_id');
             $table->string('title');
             $table->string('slug')->unique();

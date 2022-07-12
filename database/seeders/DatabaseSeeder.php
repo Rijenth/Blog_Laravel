@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use  \App\Models\User;
 use  \App\Models\Category;
 use  \App\Models\Post;
+use  \App\Models\Comment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,9 +20,9 @@ class DatabaseSeeder extends Seeder
     {
 
         // On crée un nouveau faux utilisateur
-        /* $user =  */User::factory()->create(/* [
+        /* $user =  User::factory()->create(/* [
             'name' => 'Tom Bennet'
-        ] */);
+        ] );*/
 
 
 
@@ -30,7 +31,8 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id
         ] */);
 
-
+        /* On crée des commentaires sur certains posts */
+        Comment::factory(30)->create();
 
     }
 }
