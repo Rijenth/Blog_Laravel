@@ -65,6 +65,9 @@
 
         <section class='col-span-8 col-start-5 mt-10 space-y-6'>
 
+            {{-- Poster un commentaire --}}
+            <x-post-new-comment :content="$content"/>
+
             {{-- Les commentaires --}}
             @foreach ($content->comments as $comment)
                 <x-post-comment :comment="$comment" />

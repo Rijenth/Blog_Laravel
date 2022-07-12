@@ -9,6 +9,11 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'body'
+    ];
+
     public function post() // Laravel devine que la colonne s'appelle 'post_id'
     {
         return $this->belongsTo(Post::class);
