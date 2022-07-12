@@ -33,7 +33,8 @@ Route::post('newsletter', NewsletterController::class);
 
 
 Route::get('/', [PostController::class, 'index']);
-                  //   || Pas défaut, pointe 'id'
+
+                //   || Pas défaut, pointe 'id'
 Route::get('/title/{post:slug}', [PostController::class, 'show']);
 Route::post('posts/{post:slug}/comments', [PostCommentController::class, 'store'])->middleware('auth');;
 
