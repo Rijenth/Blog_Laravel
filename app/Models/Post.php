@@ -17,8 +17,8 @@ class Post extends Model
         'title',
         'excerpt',
         'date',
-        'redirect',
         'body',
+        'thumbnail',
         'category_id',
         'user_id',
         'slug'

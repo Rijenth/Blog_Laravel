@@ -34,5 +34,13 @@ class DatabaseSeeder extends Seeder
         /* On crée des commentaires sur certains posts */
         Comment::factory(30)->create();
 
+        User::factory()->create([
+            'name' => 'rijenth',
+            'username' => 'rijenth',
+            'email' => 'rijenth@live.fr',
+            'password' => 'rijenth',
+            'is_admin' => 1
+        ]);
+
     }
 }
