@@ -17,6 +17,7 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Illuminate\support\Facades\File;
 use PhpParser\Node\Stmt\TryCatch;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,3 +54,7 @@ Route::post('login', [SessionController::class, 'store'])->middleware('guest');
 
 
 Route::post('logout', [SessionController::class, "destroy"])->middleware('auth');
+
+/* Section administrateur */
+Route::get('admin/posts/create', [PostController::class, 'create'])->middleware('admin');
+Route::post('admin/posts', [PostController::class, 'store'])->middleware('admin');

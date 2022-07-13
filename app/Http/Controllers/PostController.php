@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 Use App\Models\User;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -44,6 +45,29 @@ class PostController extends Controller
         return view('post.index', [
             'mesPost' => $author->posts
         ]);
+    }
+
+    public function create()
+    {
+        return view('post.create');
+    }
+
+    public function store()
+    {
+        $attributes = request()->validate([
+            'title' => 'required|max:30',
+            'slug' => ['required', Rule::unique('posts', 'slug')], // La valeur ne doit pas déjà existé dans la table
+            'category_id' => ['required', Rule::exists('categories', 'id')], // La valeur existe dans la table categories, colonne id
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
+
+        $attributes['user_id'] = auth()->id();
+        $attributes['redirect'] = $attributes['slug'];
+
+        Post::create($attributes);
+
+        return redirect('/');
     }
 
 

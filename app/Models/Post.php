@@ -20,6 +20,7 @@ class Post extends Model
         'redirect',
         'body',
         'category_id',
+        'user_id',
         'slug'
     ];
 
