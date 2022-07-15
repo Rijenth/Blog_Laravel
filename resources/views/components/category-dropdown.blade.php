@@ -1,7 +1,7 @@
 <x-dropdown>
 
     <x-slot name="trigger">
-        <button class=" py-2 pl-3 text-left text-sm font-semibold w-32 inline-flex">
+        <button class="py-2 pl-3 pr-9 text-sm font-semibold w-full lg:w-32 text-left flex lg:inline-flex">
 
             {{ (isset($currentCategory)) ? ucwords($currentCategory->name) : 'Catégories'}}
 
@@ -37,3 +37,4 @@
     @endforeach
 
 </x-dropdown>
+

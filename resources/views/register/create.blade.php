@@ -12,88 +12,15 @@
                 method="POST" class="mt-10">
                 @csrf
 
-                <div class="mb-6">
-
-                    {{-- Name --}}
-                    <label
-                        for="Name"
-                        class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Name
-                    </label>
-                    <input
-                        class="border border-gray-400 p-2 w-full"
-                        type="text"
-                        name="name"
-                        id="name"
-                        required
-                        value="{{ old('name') }}">
+                <x-form.input name="name"/>
+                <x-form.input name="username"/>
+                <x-form.input name="password"/>
+                <x-form.input name="email"/>
 
 
-                </div>
-
-                <div class="mb-6">
-                    {{-- Username --}}
-                    <label
-                        for="username"
-                        class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Username
-                    </label>
-                    <input
-                        class="border border-gray-400 p-2 w-full"
-                        type="text"
-                        name="username"
-                        id="username"
-                        required
-                        value="{{ old('username') }}">
-
-                </div>
-
-
-                <div class="mb-6">
-                    {{-- Password --}}
-                    <label
-                        for="password"
-                        class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Password
-                    </label>
-                    <input
-                        class="border border-gray-400 p-2 w-full"
-                        type="password"
-                        name="password"
-                        id="password"
-                        required
-                        >
-
-                </div>
-
-
-
-                <div class="mb-6">
-                    {{-- Mail --}}
-                    <label
-                        for="email"
-                        class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Email
-                    </label>
-                    <input
-                        class="border border-gray-400 p-2 w-full"
-                        type="email"
-                        name="email"
-                        id="email"
-                        required
-                        value="{{ old('email') }}">
-
-                </div>
-
-
-                <div class="mb-6">
-                    {{-- Submit --}}
-                    <button type="submit"
-                            class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">
-                            Submit
-                    </button>
-
-                </div>
+                <x-form.field>
+                    <x-submit-button>Publish</x-submit-button>
+                </x-form.field>
 
                 @if ($errors->any())
                     @foreach ($errors->all() as $error)

@@ -21,7 +21,7 @@
                 </p>
 
                 <div class="flex items-center lg:justify-center text-sm mt-4">
-                    <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                    <img src="/storage/images/lary-avatar.svg" alt="Lary avatar">
                     <div class="ml-3 text-left">
                         <h5 class="font-bold"><a href="/?author={{$content->author->username}}">{{$content->author->name}}</a></h5>
                         <h6>{{$content->author->username}}</h6>

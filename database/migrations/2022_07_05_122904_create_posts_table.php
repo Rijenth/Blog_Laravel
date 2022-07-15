@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete(); // Si on supprime un utilisateur, alors tout ses posts disparaissents.
             $table->foreignId('category_id');
             $table->string('title');
-            $table->string('thumbnail')->nullable();
+            $table->string('thumbnail')->default('images/illustration-1.png');
             $table->string('slug')->unique();
             $table->text('excerpt');
             $table->timestamp('date')->nullable();

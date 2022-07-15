@@ -16,7 +16,7 @@
         <nav class="md:flex md:justify-between md:items-center">
             <div>
                 <a href="/">
-                    <img src="/images/logo.svg" alt="Laracasts Logo" width="165" height="16">
+                    <img src="/storage/images/logo.svg" alt="Laracasts Logo" width="165" height="16">
                 </a>
             </div>
 
@@ -27,12 +27,22 @@
                     <a href="/register" class="text-xs font-bold uppercase">Register</a>
                 @endguest --}}
                 @auth
-                    <span href="/" class="text-xs font-bold uppercase">Welcome back {{ auth()->user()->name }}</span>
 
-                <form action="/logout" method="post" class="text-xs font-semibold text-blue-500 ml-6">
-                    @csrf
-                    <button type="submit">Logout</button>
-                </form>
+                <x-dropdown>
+                    <x-slot name="trigger">
+                        <button class="text-xs font-bold uppercase">Welcome back {{ auth()->user()->name }}</button>
+                    </x-slot>
+
+
+                    <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New post</x-dropdown-item>
+                    <form id="logout" action="/logout"  method="post">
+                        @csrf
+                        <x-dropdown-item href="#" ><button type="submit">Logout</button></x-dropdown-item>
+                    </form>
+
+
+                    </x-dropdown>
+
 
                     @else
                     <a href="/login" class="text-xs font-bold uppercase">Login</a>

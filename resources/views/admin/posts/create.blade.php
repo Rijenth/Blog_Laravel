@@ -2,6 +2,7 @@
 
 @section('content')
 
+    <x-setting heading="Publish New Post">
     <section class="py-8 max-w-md mx-auto">
 
         <h1 class="text-lg font-bold mb-4">Publish New Post</h1>
@@ -29,10 +30,9 @@
 
 
     </section>
-
-{{-- Permet d'inclure le header --}}
-{{-- 'post._header' == '/post/_header' --}}
+</x-setting>
 
 
 
 @endsection
+

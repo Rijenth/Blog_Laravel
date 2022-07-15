@@ -13,7 +13,7 @@
     {{-- <header>
         {{$slot}}
     </header> --}}
-    
+
     @yield('content')
 
 </body>

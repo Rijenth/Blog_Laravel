@@ -13,42 +13,12 @@
                 @csrf
                 <div class="mb-6">
 
-                <div class="mb-6">
-                    {{-- Mail --}}
-                    <label
-                        for="email"
-                        class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Email
-                    </label>
-                    <input
-                        class="border border-gray-400 p-2 w-full"
-                        type="email"
-                        name="email"
-                        id="email"
-                        required
-                        value="{{ old('email') }}">
+                <x-form.input name="email" type="email" autocomplete="username" />
 
-                </div>
-
-                <div class="mb-6">
-                    {{-- Password --}}
-                    <label
-                        for="password"
-                        class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Password
-                    </label>
-                    <input
-                        class="border border-gray-400 p-2 w-full"
-                        type="password"
-                        name="password"
-                        id="password"
-                        required
-                        >
-
-                </div>
+                <x-form.input name="password" type="password" autocomplete="new-password"/>
 
 
-                <div class="mb-6">
+                <div class="mt-6">
                     {{-- Submit --}}
                     <button type="submit"
                             class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">
