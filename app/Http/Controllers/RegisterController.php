@@ -14,10 +14,10 @@ class RegisterController extends Controller
     public function store()
     {
         $myUser = request()->validate([
-                    'name' => 'required|min:4|max:255',
-                    'username' => 'required|max:255|min:4|unique:users,username',
-                    'email' => 'required|email|max:255|unique:users,email',
-                    'password' => ['required', 'max:255', 'min:4'] // Je recommande cette manière d'écrire
+                    'name' => 'required|min:4|max:20|alpha',
+                    'username' => 'required|min:4|max:20|alpha|unique:users,username',
+                    'email' => 'required|email|max:50|unique:users,email',
+                    'password' => ['required', 'max:40', 'min:4'] // Je recommande cette manière d'écrire
 
                 ]);
 

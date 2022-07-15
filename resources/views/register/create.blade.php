@@ -12,28 +12,17 @@
                 method="POST" class="mt-10">
                 @csrf
 
-                <x-form.input name="name"/>
-                <x-form.input name="username"/>
-                <x-form.input name="password"/>
-                <x-form.input name="email"/>
+                <x-form.input name="name" type="text" />
+                <x-form.input name="username" type="text"/>
+                <x-form.input name="password" type="password"/>
+                <x-form.input name="email" type="email"/>
 
 
                 <x-form.field>
                     <x-submit-button>Publish</x-submit-button>
                 </x-form.field>
 
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
 
-                    <ul>
-                        <li
-                            class="text-red-500 text-xs">
-                            {{$error}}
-                        </li>
-                    </ul>
-
-                    @endforeach
-                @endif
 
 
             </form>
