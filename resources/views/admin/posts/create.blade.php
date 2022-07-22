@@ -16,8 +16,8 @@
                 <x-form.input name="slug" />
                 <x-form.input name="thumbnail" type="file" />
                 <x-form.select name="category_id"/>
-                <x-form.textarea name="excerpt"/>
-                <x-form.textarea name="body"/>
+                <x-form.textarea name="excerpt"></x-form.textarea>
+                <x-form.textarea name="body"></x-form.textarea>
 
                 {{-- Le bouton d'envoi --}}
                 <x-form.field>

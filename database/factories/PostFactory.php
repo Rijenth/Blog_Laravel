@@ -27,7 +27,7 @@ class PostFactory extends Factory
 
         return [
 
-            'title' => $this->faker->sentence(),
+            'title' => $this->faker->words(3, true),
             'excerpt' => '<p>'.implode('</p><p>', $this->faker->paragraphs(2)).'</p>',
             'body' => '<p>'.implode('</p><p>', $this->faker->paragraphs(6)).'</p>',
             'slug' => $this->faker->sentence,

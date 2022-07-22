@@ -35,6 +35,7 @@
 
 
                     <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New post</x-dropdown-item>
+                    <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">All post</x-dropdown-item>
                     <form id="logout" action="/logout"  method="post">
                         @csrf
                         <x-dropdown-item href="#" ><button type="submit">Logout</button></x-dropdown-item>
@@ -97,7 +98,7 @@
         </footer>
     </section>
 
-    {{-- Mon composantt flash affiche un
+    {{-- Mon composant flash affiche un
         petit message confirmant l'inscription de l'utilisateur --}}
     <x-flash/>
 
